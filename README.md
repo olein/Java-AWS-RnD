@@ -6,3 +6,4 @@ This is a RnD repository for trying out different AWS services. I will add diffe
 
 1. RDS
 2. S3
+3. ElastiCache
