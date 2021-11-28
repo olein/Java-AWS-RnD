@@ -8,3 +8,5 @@ This is a RnD repository for trying out different AWS services. I will add diffe
 2. S3
 3. ElastiCache
 4. SQS
+5. SNS
+6. SES
