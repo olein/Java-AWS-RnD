@@ -6,3 +6,8 @@ I will mention the branch name in this file.
 ### Branches
 
 1. RDS
+2. S3
+3. ElastiCache
+4. SQS
+5. SNS
+6. SES
