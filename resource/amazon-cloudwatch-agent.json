@@ -1,0 +1,31 @@
+{
+  "logs": {
+    "logs_collected": {
+      "files": {
+        "collect_list": [
+          {
+            "file_path": "/home/ec2-user/java-aws-rnd/logs/*-uat.log",
+            "log_group_name": "java-aws-rnd-uat-logging",
+            "log_stream_name": "java-aws-rnd-logging-uat-{instance_id}.log",
+            "timestamp_format": "%Y-%m-%d %H:%M:%S.%f",
+            "multi_line_start_pattern": "{timestamp_format}"
+          },
+          {
+            "file_path": "/home/ec2-user/java-aws-rnd/logs/*-dev.log",
+            "log_group_name": "java-aws-rnd-dev-logging",
+            "log_stream_name": "java-aws-rnd-logging-dev-{instance_id}.log",
+            "timestamp_format": "%Y-%m-%d %H:%M:%S.%f",
+            "multi_line_start_pattern": "{timestamp_format}"
+          },
+          {
+            "file_path": "/home/ec2-user/java-aws-rnd/logs/*-prod.log",
+            "log_group_name": "java-aws-rnd-prod-logging",
+            "log_stream_name": "java-aws-rnd-logging-prod-{instance_id}.log",
+            "timestamp_format": "%Y-%m-%d %H:%M:%S.%f",
+            "multi_line_start_pattern": "{timestamp_format}"
+          }
+        ]
+      }
+    }
+  }
+}
