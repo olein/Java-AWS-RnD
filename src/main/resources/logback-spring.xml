@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <!-- Use Spring default values. -->
+    <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
+
+    <springProfile name="default | local">
+        <property name="LOGS_FOLDER" value="./logs" />
+        <property name="FILE_PATH" value="${LOGS_FOLDER}/java-aws-rnd-logging-local.log" />
+    </springProfile>
+
+    <springProfile name="dev | uat | prod">
+        <property name="LOGS_FOLDER" value="/home/ec2-user/java-aws-rnd/logs" />
+    </springProfile>
+
+    <springProfile name="uat">
+        <property name="FILE_PATH" value="${LOGS_FOLDER}/java-aws-rnd-logging-uat.log" />
+    </springProfile>
+
+    <springProfile name="prod">
+        <property name="FILE_PATH" value="${LOGS_FOLDER}/java-aws-rnd-logging-prod.log" />
+    </springProfile>
+
+    <springProfile name="dev">
+        <property name="FILE_PATH" value="${LOGS_FOLDER}/java-aws-rnd-logging-dev.log" />
+    </springProfile>
+
+    <property name="MAX_FILE_SIZE" value="1MB" />
+    <property name="TOTAL_SIZE_CAP" value="1GB" />
+    <property name="MAX_HISTORY" value="60" />
+
+
+    <property name="ROLLING_POLICY_LOG_FILE_PATTERN" value="${FILE_PATH}.%d{yyyy-MM-dd}.%i.gz"/>
+
+    <appender name="Console"
+              class="ch.qos.logback.core.ConsoleAppender">
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <pattern>${CONSOLE_LOG_PATTERN}</pattern>
+        </layout>
+    </appender>
+
+    <appender name="RollingFile"
+              class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${FILE_PATH}</file>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>${FILE_LOG_PATTERN}</pattern>
+        </encoder>
+
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>${ROLLING_POLICY_LOG_FILE_PATTERN}</fileNamePattern>
+            <maxFileSize>${MAX_FILE_SIZE}</maxFileSize>
+
+            <!--
+                Controls the total size of all archive files. Oldest archives are deleted asynchronously when the total size cap is exceeded.
+                The totalSizeCap property requires maxHistory property to be set as well. Moreover,
+                the "max history" restriction is always applied first and the "total size cap" restriction applied second.
+            -->
+            <totalSizeCap>${TOTAL_SIZE_CAP}</totalSizeCap>
+
+            <!--
+                Controls the maximum number of archive files to keep,
+                asynchronously deleting older files. For example, if you specify monthly rollover, and set maxHistory to 6,
+                then 6 months worth of archives files will be kept with files older than 6 months deleted.
+                Note as old archived log files are removed, any folders which were created for the purpose of log
+                file archiving will be removed as appropriate.
+            -->
+            <maxHistory>${MAX_HISTORY}</maxHistory>
+
+            <!--
+                The optional maxHistory property controls the maximum number of archive files to keep, asynchronously deleting older files.
+                For example, if you specify monthly rollover, and set maxHistory to 6, then 6 months worth of archives files will be kept
+                with files older than 6 months deleted. Note as old archived log files are removed, any folders which were created for the
+                purpose of log file archiving will be removed as appropriate.
+            -->
+            <cleanHistoryOnStart>true</cleanHistoryOnStart>
+        </rollingPolicy>
+    </appender>
+
+    <!-- LOG everything at INFO level -->
+    <root level="info">
+        <springProfile name="default | local">
+            <appender-ref ref="Console" />
+            <appender-ref ref="RollingFile" />
+        </springProfile>
+
+        <springProfile name="dev | uat | prod">
+            <appender-ref ref="RollingFile" />
+        </springProfile>
+    </root>
+</configuration>
