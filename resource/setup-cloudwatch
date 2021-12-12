@@ -1,2 +1,12 @@
+sudo amazon-linux-extras install java-openjdk11
+
 sudo yum install amazon-cloudwatch-agent
+
 sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -a fetch-config -m ec2 -s -c file:/root/config/amazon-cloudwatch-agent.json
+
+sudo /bin/systemctl status amazon-cloudwatch-agent
+
+----------------------------------------------------
+
+Assign CloudWatchAgentServerPolicy to a role
+Assign that role to EC2 instance
