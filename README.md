@@ -12,5 +12,5 @@ This is a RnD repository for trying out different AWS services. I will add diffe
 | 6 | SES  | https://github.com/olein/Java-AWS-RnD/tree/ses  | https://aws.plainenglish.io/amazon-ses-basic-concepts-and-spring-boot-integration-db595ba29e12  |
 | 7  | CloudWatch  | https://github.com/olein/Java-AWS-RnD  | https://aws.plainenglish.io/configure-cloudwatch-to-monitor-spring-boot-application-log-dd1e487a4261  |
 | 8  | EventBridge  |   |  https://aws.plainenglish.io/amazon-eventbridge-158b941e3926 |
-| ------------ | ------------ | ------------ | ------------ |
+| - | ------------ | ------------ | ------------ |
 
