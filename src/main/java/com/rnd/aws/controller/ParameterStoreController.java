@@ -35,7 +35,7 @@ public class ParameterStoreController {
     LOG.info("Password : " + password);
 
     serviceResponse.setBody(
-        "Welcome to AWS RnD Java Project. Testing parameter store."
+        "Welcome to AWS RnD Spring boot Project. Testing parameter store."
             + "URL "
             + url
             + ", Password "
