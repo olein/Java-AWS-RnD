@@ -47,7 +47,7 @@ public class JmsConfig {
   public DefaultJmsListenerContainerFactory jmsListenerContainerFactory() {
     this.connectionFactory =
             SQSConnectionFactory.builder()
-                    .withRegion(Region.getRegion(Regions.US_EAST_1))
+                    .withRegion(Region.getRegion(Regions.AP_SOUTHEAST_1))
                     .withAWSCredentialsProvider(new DefaultAWSCredentialsProviderChain())
                     .withNumberOfMessagesToPrefetch(0)
                     .build();
