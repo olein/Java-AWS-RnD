@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.time.LocalDateTime;
 
 /*
@@ -26,9 +28,24 @@ public class WelcomeController {
 
     ServiceResponse serviceResponse = new ServiceResponse();
 
-    log();
+    // log();
+    InetAddress ip = null;
+    String hostname = "";
+    String response = "";
+    try {
+      ip = InetAddress.getLocalHost();
+      hostname = ip.getHostName();
+      LOG.info("Your current IP address : " + ip);
+      LOG.info("Your current Hostname : " + hostname);
+      response =
+          String.format(
+              "Welcome to AWS RnD Java Project. Server ip is %s and " + "hostname %s",
+              ip, hostname);
+    } catch (UnknownHostException e) {
+      response = e.getMessage();
+    }
 
-    serviceResponse.setBody("Welcome to AWS RnD Java Project");
+    serviceResponse.setBody(response);
     serviceResponse.setStatus(HttpStatus.OK);
     serviceResponse.setStatusCode(StatusCode.SUCCESS);
 
