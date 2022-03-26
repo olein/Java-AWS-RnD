@@ -11,6 +11,6 @@ sudo yum install -y python-pip
 sudo pip install awscli
 sudo amazon-linux-extras install java-openjdk11
 
-
+//verify installation
 sudo service codedeploy-agent status
 java -version
