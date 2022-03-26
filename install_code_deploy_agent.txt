@@ -1,4 +1,5 @@
-#!/bin/bash
+//run below commands
+
 sudo yum update
 sudo yum install ruby
 sudo yum install wget
@@ -9,3 +10,7 @@ sudo ./install auto
 sudo yum install -y python-pip
 sudo pip install awscli
 sudo amazon-linux-extras install java-openjdk11
+
+
+sudo service codedeploy-agent status
+java -version
