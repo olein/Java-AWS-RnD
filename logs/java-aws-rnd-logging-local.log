@@ -1,0 +1,20 @@
+2022-03-26 12:32:33.101  INFO 13436 --- [main] com.rnd.aws.AwsApplicationTests          : Starting AwsApplicationTests using Java 11.0.12 on Fahim with PID 13436 (started by THINKPAD in E:\Rnd Projects\AWS\Java-aws-rnd)
+2022-03-26 12:32:33.104  INFO 13436 --- [main] com.rnd.aws.AwsApplicationTests          : No active profile set, falling back to default profiles: default
+2022-03-26 12:32:34.745  INFO 13436 --- [main] com.rnd.aws.AwsApplicationTests          : Started AwsApplicationTests in 2.045 seconds (JVM running for 2.998)
+2022-03-26 12:33:45.066  INFO 4452 --- [main] com.rnd.aws.AwsApplication               : Starting AwsApplication using Java 11.0.12 on Fahim with PID 4452 (E:\Rnd Projects\AWS\Java-aws-rnd\target\classes started by THINKPAD in E:\Rnd Projects\AWS\Java-aws-rnd)
+2022-03-26 12:33:45.068  INFO 4452 --- [main] com.rnd.aws.AwsApplication               : The following profiles are active: local
+2022-03-26 12:33:45.606  INFO 4452 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-03-26 12:33:45.611  INFO 4452 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-03-26 12:33:45.612  INFO 4452 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.53]
+2022-03-26 12:33:45.651  INFO 4452 --- [main] o.a.c.c.C.[.[localhost].[/aws-demo]      : Initializing Spring embedded WebApplicationContext
+2022-03-26 12:33:45.651  INFO 4452 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 559 ms
+2022-03-26 12:33:45.889  INFO 4452 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/aws-demo'
+2022-03-26 12:33:45.898  INFO 4452 --- [main] com.rnd.aws.AwsApplication               : Started AwsApplication in 1.219 seconds (JVM running for 2.626)
+2022-03-26 12:34:21.510  INFO 4452 --- [http-nio-8080-exec-1] o.a.c.c.C.[.[localhost].[/aws-demo]      : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-03-26 12:34:21.511  INFO 4452 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-03-26 12:34:21.512  INFO 4452 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2022-03-26 12:34:21.534  INFO 4452 --- [http-nio-8080-exec-1] c.rnd.aws.controller.WelcomeController   : Your current IP address : Fahim/192.168.1.103
+2022-03-26 12:34:21.534  INFO 4452 --- [http-nio-8080-exec-1] c.rnd.aws.controller.WelcomeController   : Your current Hostname : Fahim
+2022-03-26 12:42:07.215  INFO 15152 --- [main] com.rnd.aws.AwsApplicationTests          : Starting AwsApplicationTests using Java 11.0.12 on Fahim with PID 15152 (started by THINKPAD in E:\Rnd Projects\AWS\Java-aws-rnd)
+2022-03-26 12:42:07.218  INFO 15152 --- [main] com.rnd.aws.AwsApplicationTests          : No active profile set, falling back to default profiles: default
+2022-03-26 12:42:08.398  INFO 15152 --- [main] com.rnd.aws.AwsApplicationTests          : Started AwsApplicationTests in 1.539 seconds (JVM running for 2.263)

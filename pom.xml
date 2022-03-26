@@ -11,7 +11,7 @@
     <groupId>com.rnd</groupId>
     <artifactId>aws</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <packaging>war</packaging>
+    <packaging>jar</packaging>
     <name>aws</name>
     <description>aws</description>
     <properties>
