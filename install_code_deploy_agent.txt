@@ -1,4 +1,4 @@
-//run below commands to set up java 11
+//run below commands to set up java 11 and codedeploy agent
 
 sudo yum update
 sudo yum install ruby
