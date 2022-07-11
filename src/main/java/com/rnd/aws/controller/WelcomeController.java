@@ -24,14 +24,14 @@ public class WelcomeController {
   private static final Logger LOG = LoggerFactory.getLogger(WelcomeController.class);
 
   @GetMapping(value = "/index")
-  public ResponseEntity<ServiceResponse> index() {
+  public ResponseEntity<ServiceResponse<String>> index() {
 
-    ServiceResponse serviceResponse = new ServiceResponse();
+    ServiceResponse<String> serviceResponse = new ServiceResponse<>();
 
     // log();
-    InetAddress ip = null;
-    String hostname = "";
-    String response = "";
+    InetAddress ip;
+    String hostname;
+    String response;
     try {
       ip = InetAddress.getLocalHost();
       hostname = ip.getHostName();
@@ -39,8 +39,7 @@ public class WelcomeController {
       LOG.info("Your current Hostname : " + hostname);
       response =
           String.format(
-              "Welcome to AWS RnD Java Project. Server ip is %s and " + "hostname %s",
-              ip, hostname);
+              "Welcome to AWS RnD Java Project. Server ip is %s and hostname %s", ip, hostname);
     } catch (UnknownHostException e) {
       response = e.getMessage();
     }
