@@ -1,0 +1,39 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: >-
+  CloudFormation template for EventBridge rule with Already created SQS
+Resources:
+  EventRule1:
+    Type: AWS::Events::Rule
+    Properties:
+      EventBusName: default
+      Name: test-eb-rule-1-for-every-6-min
+      ScheduleExpression: cron(0/6 * * * ? *)
+      State: ENABLED
+      Targets:
+        - Id: test-id-sqs-2
+          Arn: >-
+            arn:aws:sqs:us-east-1:568560058349:TestFifoQueue.fifo
+          Input: |-
+            {
+              "body": {
+                "data": "TEST DATA"
+              }
+            }
+          SqsParameters:
+            MessageGroupId: messageGroupId
+
+  MyQueueEventBridgePolicyFor1:
+    Type: AWS::SQS::QueuePolicy
+    Properties:
+      PolicyDocument:
+        Version: 2012-10-17
+        Statement:
+          - Effect: Allow
+            Principal: { Service: events.amazonaws.com }
+            Action:
+              - SQS:SendMessage
+              - kms:Encrypt
+              - kms:Decrypt
+            Resource: "arn:aws:sqs:us-east-1:568560058349:TestFifoQueue.fifo"
+      Queues:
+        - "https://sqs.us-east-1.amazonaws.com/568560058349/TestFifoQueue.fifo"

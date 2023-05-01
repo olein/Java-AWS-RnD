@@ -1,0 +1,15 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: >-
+  CloudFormation template to create EventBridge rule and SQS
+Resources:
+  TestQueue:
+    Type: AWS::SQS::Queue
+    Properties:
+      QueueName: TestFifoQueue.fifo
+      FifoQueue: true
+      ContentBasedDeduplication: true
+      DeduplicationScope: messageGroup
+      FifoThroughputLimit: perMessageGroupId
+      ReceiveMessageWaitTimeSeconds: 20
+      SqsManagedSseEnabled: true
+      VisibilityTimeout: 30

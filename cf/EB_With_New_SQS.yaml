@@ -1,0 +1,50 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: >-
+  CloudFormation template to create EventBridge rule with new SQS
+Resources:
+  TestQueue:
+    Type: AWS::SQS::Queue
+    Properties:
+      QueueName: TestFifoQueue.fifo
+      FifoQueue: true
+      ContentBasedDeduplication: true
+      DeduplicationScope: messageGroup
+      FifoThroughputLimit: perMessageGroupId
+      ReceiveMessageWaitTimeSeconds: 20
+      SqsManagedSseEnabled: true
+      VisibilityTimeout: 30
+
+  EventBridgeRule1:
+    Type: AWS::Events::Rule
+    Properties:
+      EventBusName: default
+      Name: test-eb-rule-1-for-every-6-min
+      ScheduleExpression: cron(0/6 * * * ? *)
+      State: ENABLED
+      Targets:
+        - Id: test-id-sqs-1
+          Arn: !GetAtt TestQueue.Arn
+          Input: |-
+            {
+              "body": {
+                "data": "TEST DATA"
+              }
+            }
+          SqsParameters:
+            MessageGroupId: messageGroupId
+
+  MyQueueEventBridgePolicyFor1:
+    Type: AWS::SQS::QueuePolicy
+    Properties:
+      PolicyDocument:
+        Version: 2012-10-17
+        Statement:
+          - Effect: Allow
+            Principal: { Service: events.amazonaws.com }
+            Action:
+              - SQS:SendMessage
+              - kms:Encrypt
+              - kms:Decrypt
+            Resource: !GetAtt TestQueue.Arn
+      Queues:
+        - !Ref TestQueue
