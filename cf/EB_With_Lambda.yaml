@@ -1,0 +1,31 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: >-
+  CloudFormation template to create EventBridge rule with Lambda
+Resources:
+  EventRule0:
+    Type: AWS::Events::Rule
+    Properties:
+      EventBusName: default
+      Name: test-eb-rule-for-every-3-min
+      ScheduleExpression: cron(0/3 * * * ? *)
+      State: ENABLED
+      Targets:
+        - Id: test-eb-rule-1-for-every-6-min
+          Arn: >-
+            arn:aws:lambda:us-east-1:568560058349:function:fahim-test
+          Input: |-
+            {
+              "body": {
+                "type": "test"
+              }
+            }
+  PermissionForEvent0ToInvokeLambda:
+    Type: AWS::Lambda::Permission
+    Properties:
+      FunctionName: fahim-test
+      Action: "lambda:InvokeFunction"
+      Principal: "events.amazonaws.com"
+      SourceArn:
+        Fn::GetAtt:
+          - "EventRule0"
+          - "Arn"
