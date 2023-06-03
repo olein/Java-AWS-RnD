@@ -1,8 +1,8 @@
 AWSTemplateFormatVersion: '2010-09-09'
 Description: >-
-  CloudFormation template to create EventBridge rule with Lambda
+  CloudFormation template to integrate EventBridge rule with Lambda
 Resources:
-  EventRule0:
+  EventRule1:
     Type: AWS::Events::Rule
     Properties:
       EventBusName: default
@@ -10,7 +10,7 @@ Resources:
       ScheduleExpression: cron(0/3 * * * ? *)
       State: ENABLED
       Targets:
-        - Id: test-eb-rule-1-for-every-6-min
+        - Id: test-eb-rule-1-for-every-3-min
           Arn: >-
             arn:aws:lambda:us-east-1:568560058349:function:fahim-test
           Input: |-
@@ -27,5 +27,5 @@ Resources:
       Principal: "events.amazonaws.com"
       SourceArn:
         Fn::GetAtt:
-          - "EventRule0"
+          - "EventRule1"
           - "Arn"
