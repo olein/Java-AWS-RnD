@@ -1,3 +1,6 @@
+# Repository moved to: https://github.com/fahimfahad92/Java-AWS-RnD
+
+
 # Java-AWS-RnD  
   
 This is a RnD repository for trying out different AWS services. I will add different branches for different aws services.   
