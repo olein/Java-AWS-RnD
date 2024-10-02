@@ -1,6 +1,6 @@
 # Java-AWS-RnD  
   
-This is a RnD repository for trying out different AWS services. I will add different branches for different aws services.   
+This is a RnD repository for trying out different AWS services. I will add different branches for different aws services   
 
 |   | Topic  | Branch  | Blog Link  |
 | ------------ | ------------ | ------------ | ------------ |
